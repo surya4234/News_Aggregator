@@ -1,0 +1,637 @@
+:root {
+    --color-primary:  #161A30;   /* Dark Purple */
+    --color-secondary: #31304D ; /* Bright Pink */
+    --color-accent:  #B6BBC4;    /* Light Pink */
+    --color-background: #F0ECE5; /* Light Yellow */
+    --color-text: #333;         /* Dark Text */
+    --color-border: #ccc;       /* Light Border */
+    --color-hover: #d4d4d4;     /* Hover Color */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;   
+    transition: margin-left 2s ease; /* Smooth transition for main content */
+}
+.hero {
+    height: 70vh;
+    background: url('../img/landing.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero h1 {
+    color: var(--color-background);
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background: var(--color-secondary);
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: var(--color-background);
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+nav ul li a:hover {
+    background: var(--color-primary);
+}
+.navbar {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: auto; /* Push logo to the left */
+    transition: color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    color: var(--color-secondary); /* Change color on hover */
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar {
+    width: 250px; /* Increased width for better touch targets */
+    background-color: var(--color-background);
+    position: fixed;
+    height: 100%;
+    padding-top: 20px;
+    left: 0;    
+    transition: transform 0.8s ease; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.sidebar.deActive {
+    transform: translateX(-100%);
+}
+
+.sidebar .active {
+    transform: translateX(0); /* Show drawer */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a{
+
+    text-decoration: none;
+    color: var(--color-text);
+    display: inline-block;
+    width: 100%;
+}
+
+.sidebar ul li:hover {
+    background-color: var(--color-hover); /* Highlight on hover */
+    color: var(--color-primary); /* Change text color on hover */
+}
+
+.landing{
+    min-height: 90vh;
+}
+.main-content {
+    min-height: 100vh;
+    margin-left: 0; /* Initially full width */
+    padding: 20px;
+    transition: margin-left 0.8s ease; /* Smooth transition */
+}
+
+.sidebar.active + .main-content {
+    margin-left: 250px; /* Shift right when sidebar is active */
+}
+
+.quick-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.action-card {
+    border: 1px solid var(--color-secondary);
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    background-color: white; /* Optionally set a background */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth effects */
+}
+
+.action-card:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.promo-banner {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center text */
+    font-weight: bold; /* Bold text */
+}
+
+
+.promo-banner h2 {
+    margin-bottom: 15px; /* Space below heading */
+}
+
+.promo-cards {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+}
+
+.promo-card {
+    background-color: white; /* White background for cards */
+    color: var(--color-primary); /* Primary color for text */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Inner padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s ease; /* Smooth transform */    
+}
+
+.promo-card:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.promo-card h3 {
+    margin: 0 0 10px; /* Margin for title */
+}
+
+.promo-card p {
+    margin: 0 0 15px; /* Margin for description */
+}
+
+.promo-btn {
+    background-color: var(--color-primary); /* Use primary color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Adequate padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.promo-btn:hover {
+    background-color: var(--color-secondary); /* Change to secondary color on hover */
+}
+
+
+
+.user-tips {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px; /* Rounded corners */
+    background-color: white; /* Background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.user-tips h2 {
+    margin-bottom: 10px;
+    color: var(--color-primary);
+    font-weight: bold; /* Emphasize the heading */
+}
+
+.user-tips ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+}
+
+.user-tips ul li {
+    background: var(--color-accent); /* Light pink background */
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.user-tips ul li:hover {
+    background-color: var(--color-secondary); /* Darken on hover */
+    color: white; /* Change text color on hover */
+}
+
+.news-section {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px; /* Rounded corners */
+    background-color: white; /* Background color */
+}
+
+.faq-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion-header {
+    display: flex; /* Flexbox for header alignment */
+    justify-content: space-between; /* Space between header and icon */
+    align-items: center; /* Center vertically */
+    padding: 15px;
+    cursor: pointer;
+    border-top-left-radius: 8px; /* Rounded corners */
+    border-top-right-radius: 8px; /* Rounded corners */
+    position: relative; /* Position for the icon */
+}
+
+.accordion-icon {
+    font-size: 18px; /* Icon size */
+    color: var(--color-primary); /* Icon color */
+    transition: transform 0.3s ease; /* Smooth icon transition */
+}
+
+.accordion-content {
+    padding: 15px;
+    display: none; /* Hidden by default */
+    background-color: var(--color-accent);
+    color: black;
+    border-bottom-left-radius: 8px; /* Rounded corners */
+    border-bottom-right-radius: 8px; /* Rounded corners */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inset shadow */
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg); /* Rotate icon when active */
+}
+
+/* Adjust styles for larger screens */
+@media (min-width: 768px) {
+    .accordion {
+        width: 60%; /* Wider accordion on larger screens */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width on mobile */
+    }
+    
+    .main-content {
+        margin-left: 0; /* Full width on mobile */
+    }
+    
+    .quick-actions {
+        flex-direction: column; /* Stack cards on mobile */
+    }
+}
+
+.feedback-section {
+    margin-top: 20px;
+    border: 1px dashed var(--color-primary);
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.feedback-btn {
+    background-color: var(--color-secondary); /* Use the secondary color */
+    color: white; /* White text for contrast */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 10px 15px; /* Adequate padding for touch targets */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: bold; /* Make text bold */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    margin-left: 10px; /* Spacing from the text */
+}
+
+.feedback-btn:hover {
+    background-color: var(--color-primary); /* Change to primary color on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+.feedback-btn:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(100, 13, 95, 0.5); /* Add custom focus ring */
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s ease, transform 0.5s ease; /* Smooth effects */
+}
+
+.scroll-to-top:hover {
+    background-color: var(--color-secondary); /* Change color on hover */
+    transform: scale(1.1); /* Slightly grow on hover */
+}
+
+/* footer section */
+
+footer {
+    background: var(--color-primary);
+    color: var(--color-text);
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    
+    flex-wrap: wrap;
+    width: 80%;
+}
+footer .footer-column {
+    width: 30%;
+    padding: 10px;
+}
+footer h3 {
+    margin-bottom: 15px;
+    color: var(--color-accent);
+}
+footer ul {
+    list-style: none;
+}
+footer ul li {
+    margin-bottom: 10px;
+}
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+footer ul li a:hover {
+    color: var(--color-accent);
+}
+footer .social-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+footer .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+footer .social-icons a:hover {
+    color: var(--color-background);
+}
+footer .newsletter {
+    text-align: center;
+}
+footer input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+footer button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+footer button[type="submit"]:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+footer .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color:white;
+}
+@media (max-width: 768px) {
+    footer .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* profile */
+
+.profile-main-content{
+    width: 90%;
+}
+
+/* Profile Picture */
+.profile-main-content h1 {
+    color: var(--color-primary);
+}
+
+.profile-pic, .profile-info, .contact-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid var(--color-accent);
+}
+
+.profile-main-content .edit-btn, .delete-btn {
+    background-color: var(--color-secondary);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile-main-content .edit-btn:hover, .delete-btn:hover {
+    background-color: var(--color-accent);
+}
+
+.profile-main-content i.fa {
+    margin-right: 5px;
+}
+
+.profile-main-content .profile-info p, .contact-info p {
+    font-size: 16px;
+    color: var(--color-text);
+}
+
+button {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.profile-main-content button:hover {
+    background-color: var(--color-accent);
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.update-section {
+    background-color: white;
+}
+
+span.close-btn {
+    position: absolute;
+    
+    top: 100px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+span.close-btn:hover {
+    color: var(--color-accent);
+}
+
+/* Additional hover effects */
+button:hover, span.close-btn:hover {
+    transition: background-color 0.3s ease;
+    opacity: 0.9;
+}
+
+/* Ensuring overlay responsiveness */
+@media (max-width: 600px) {
+    .overlay-content {
+        width: 90%;
+    }
+
+    .profile-pic img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+span#update-message{
+    display: block;
+    font-size: medium;
+    font-weight: bold;
+    color: var(--color-secondary);
+    width: 100%;
+    text-align: center;
+}
+#news-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.article {
+    background-color: gainsboro;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.article:hover {
+    transform: scale(1.05);
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.article h2 {
+    font-size: 1.5em;
+    color: #5A72A0;
+    margin-bottom: 10px;
+}
+
+.article p {
+    font-size: 1em;
+    color: #1A2130;
+}
+
+.article a {
+    color: #1A2130;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.article a:hover {
+    color: #5A72A0;
+}

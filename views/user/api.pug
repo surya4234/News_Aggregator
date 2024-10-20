@@ -1,0 +1,24 @@
+extends userLayout 
+
+block content-head 
+    title My Profile
+
+block content-body 
+  body
+    nav
+      ul
+        li 
+          a(href="#" onclick="fetchNews('world')") World
+        li 
+          a(href="#" onclick="fetchNews('sports')") Sports
+        li 
+          a(href="#" onclick="fetchNews('technology')") Technology
+        li 
+          a(href="#" onclick="fetchNews('entertainment')") Entertainment
+    section 
+    main
+      #news-section
+    include userFooter
+
+
+    script(src="/assets/js/api.js")

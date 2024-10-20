@@ -1,0 +1,27 @@
+extends layout
+
+block content-head 
+    title Login - News Aggregator
+
+block content-body
+  section.login-section
+    h2 Login
+    form.login-form(action="/user/login" method="post")
+      input(type="email" name="email" placeholder="Your Email" required)
+      input(type="password" name="password" placeholder="Your Password" required)
+      button(type="submit") Login
+
+    //- Links for forgotten credentials
+    .forgot-credentials
+      a(href="/forgot-password") Forgot Password?    
+      a(href="/forgot-username") Forgot Username?
+
+    //- Social media login options
+    .social-login      
+      a(href="#" class="facebook-login"): i.fab.fa-facebook
+        
+      a(href="#" class="google-login"): i.fab.fa-google
+        
+      a(href="#" class="twitter-login"): i.fab.fa-twitter
+    span.error-message * #{errorMessage}
+       

@@ -1,0 +1,20 @@
+extends layout
+
+block content-head
+    title Registration - News Aggregator
+
+block content-body
+    section.registration-section
+        h2 Register
+        form.registration-form(action="/user/register" method="post")
+            input(type="text" name="first_name" placeholder="First Name" required)
+            input(type="text" name="last_name" placeholder="Last Name" required)
+            input(type="email" name="email" placeholder="Email" required)
+            input(type="password" name="password" placeholder="Password" required)
+            input(type="password" name="confirm_password" placeholder="Confirm Password" required)
+            input(type="tel" name="phone" placeholder="Phone Number" required)
+            button(type="submit") Register
+
+            div.registration-links
+                | Already have an account? 
+                a(href="/login") Login here
