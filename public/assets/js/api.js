@@ -1,16 +1,14 @@
-// script.js
 const apiKey = '3f7796cc8a364806bcc563861adfdfc7';
 
-// Function to fetch news based on category
 // Function to fetch news based on category
 function fetchNews(category) {
   let url;
 
   // API Endpoints for different categories
   if (category === 'home') {
-    url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}";
+    url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`;
   } else if (category === 'world') {
-    url = 'https://newsapi.org/v2/top-headlines?category=general&language=en&apiKey=${apiKey}';
+    url = `https://newsapi.org/v2/top-headlines?category=general&language=en&apiKey=${apiKey}`;
   } else if (category === 'sports') {
     url = 'https://newsdata.io/api/1/news?category=sports&apikey=pub_54906cdcf45b344eeaa1c72111418121bbf6c&language=en';
   } else if (category === 'technology') {
@@ -19,10 +17,11 @@ function fetchNews(category) {
     url = `https://newsdata.io/api/1/news?apikey=pub_54906cdcf45b344eeaa1c72111418121bbf6c&q=entertaiment `;
   }
 
-  // Fetching the news
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
+  // Fetching the news using Axios
+  axios.get(url)
+    .then(response => {
+      const data = response.data;
+
       if (data.articles) {
         // For NewsAPI.org response structure
         displayNews(data.articles);
@@ -51,7 +50,7 @@ function displayNews(articles) {
       <p>${article.description}</p>
       <a href="${article.url}" target="_blank">Read more</a>
     `;
-    
+
     newsSection.appendChild(articleDiv);
   });
 }
