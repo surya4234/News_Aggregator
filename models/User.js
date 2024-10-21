@@ -5,48 +5,44 @@ const userSchema = new mongoose.Schema({
     first_name: {
         type: String,
         required: true,
-        trim: true // Trims whitespace
+        trim: true
     },
     last_name: {
         type: String,
         required: true,
-        trim: true // Trims whitespace
+        trim: true
     },
     email: {
         type: String,
         required: true,
-        unique: true, // Ensures email uniqueness
+        unique: true,
         trim: true,
-        lowercase: true // Saves emails in lowercase
+        lowercase: true
     },
     password: {
         type: String,
         required: true,
-        minlength: 6 // Minimum password length
+        minlength: 6
     },
     phone: {
         type: String,
         required: true,
         trim: true,
         validate: {
-            validator: (v)=> {
-                // Simple regex for validating phone number format
-                return /^\d{10}$/.test(v); // Adjust regex according to your requirements
+            validator: (v) => {
+                return /^\d{10}$/.test(v);
             },
             message: props => `${props.value} is not a valid phone number!`
         }
     },
     profile_pic: {
-        type: String, // Store image path or URL if you're using cloud storage like AWS S3
-        required: false, // Profile pic is optional,
-        default: "avator.jpg"
+        type: String,
+        default: "avatar.jpg" // Fixed typo in the default value
     }
 }, {
-    timestamps: true // Adds createdAt and updatedAt timestamps
+    timestamps: true
 });
 
-// Create the User model
 const User = mongoose.model('User', userSchema);
 
-// Export the User model
 module.exports = User;
