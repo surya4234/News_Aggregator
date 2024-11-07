@@ -27,10 +27,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/news')
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log('Failed to connect to MongoDB', err));
-
+const connectDB = require("./config/db");
+connectDB();
+//
 // Session management
 app.use(session({
   secret: 'your_secret_key', // Change this to a secure secret
