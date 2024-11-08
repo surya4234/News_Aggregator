@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
     } catch (error) {
       
         try {
-            const jsonUrl = `http://localhost:3000/data/airports`; // Replace with your local server URL
+            const jsonUrl = `https://news-aggregator-mauve.vercel.app/data/airports`; // Replace with your local server URL
             const jsonResponse = await axios.get(jsonUrl);
             const airports = jsonResponse.data.data.filter(airport => airport.country_iso2 === 'IN');
             res.render('index', { 
